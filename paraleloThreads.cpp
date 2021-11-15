@@ -49,7 +49,6 @@ void calc(const Matriz<T> &M1, const Matriz<T> &M2, Matriz<T> &M3, int linha, in
             }
 		}
 	}
-    
 }
 
 template <typename T>

@@ -45,10 +45,28 @@ void mutiplicarMatriz(int **M1, int **M2, int **M3, int linhaM1, int colunaM2)
     arquivo.close();
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+     //cout << "Nome do executavel: " << argv[0] << endl;
+    if (argc > 1)
+    {
+        cout << endl;
+        for (int i = 1; i < argc; ++i)
+        {
+
+            cout << "Argumento " << i << ": " << argv[i] << endl;
+        }
+    }
+    else
+    {
+        cout << "Nao foram passados argumentos" << endl;
+    }
+
+    string arquivoUm(argv[1]);
+    string arquivoDois(argv[2]);
+
     int linhaM1, colunaM1;
-    fstream arquivo("M1.txt", ios_base::in);
+    fstream arquivo(arquivoUm, ios_base::in);
     string line;
     getline(arquivo, line);
     stringstream stream(line);
@@ -70,7 +88,7 @@ int main()
     arquivo.close();
 
     int linhaM2, colunaM2;
-    arquivo.open("M2.txt", ios_base::in);
+    arquivo.open(arquivoDois, ios_base::in);
     string line1;
     getline(arquivo, line1);
     stringstream stream1(line1);
