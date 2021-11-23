@@ -113,7 +113,7 @@ int main(int argc, char *argv[])
     mutiplicarMatriz(M1, M2, M3, linhaM1, colunaM2);
 
     auto end = chrono::high_resolution_clock::now();
-    auto elapsed = chrono::duration_cast<chrono::nanoseconds>(end - begin).count();
+    auto elapsed = chrono::duration_cast<chrono::milliseconds>(end - begin).count();
 
     time_t end_time = chrono::system_clock::to_time_t(end);
     cout << "finished computation at " << ctime(&end_time) << endl;

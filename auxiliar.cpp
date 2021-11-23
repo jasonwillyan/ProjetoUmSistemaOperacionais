@@ -4,7 +4,19 @@
 #include <cstdlib>
 #include <iomanip>
 
+
 using namespace std;
+
+int **newMatrix(int nlin, int ncol)
+{
+    int **matrix;
+    matrix = new int *[nlin];
+    for (int i = 0; i < nlin; ++i)
+    {
+        matrix[i] = new int[ncol];
+    }
+    return matrix;
+}
 
 int main(int argc, char *argv[])
 {
@@ -29,8 +41,8 @@ int main(int argc, char *argv[])
     int n2 = atoi(argv[3]);
     int m2 = atoi(argv[4]);
 
-    int M1[n1][m1];
-    int M2[n2][m2];
+    int **M1 = newMatrix(n1, m1);
+    int **M2 = newMatrix(n2, m2);
 
     fstream arquivo;
     arquivo.open("M1.txt", ios::out);
@@ -40,7 +52,7 @@ int main(int argc, char *argv[])
     {
         for (size_t j = 0; j < m1; j++)
         {
-            M1[i][j] = rand() % 100;
+            M1[i][j] = rand();
             arquivo << M1[i][j] << " ";
         }
         arquivo << "\n";
@@ -55,7 +67,7 @@ int main(int argc, char *argv[])
     {
         for (size_t j = 0; j < m2; j++)
         {
-            M2[i][j] = rand() % 100;
+            M2[i][j] = rand();
             arquivo << M2[i][j] << " ";
         }
         arquivo << "\n";

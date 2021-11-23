@@ -38,7 +38,7 @@ void calc(const Matriz<T> &M1, const Matriz<T> &M2, Matriz<T> &M3, int linha, in
 			if (elementos == total_elementos)
             {
                 auto end = chrono::high_resolution_clock::now();
-                auto elapsed = chrono::duration_cast<chrono::microseconds>(end - begin).count();
+                auto elapsed = chrono::duration_cast<chrono::milliseconds>(end - begin).count();
 
                 time_t end_time = chrono::system_clock::to_time_t(end);
                 cout << "finished computation at " << ctime(&end_time) << endl;
@@ -137,4 +137,6 @@ int main(int argc, char *argv[])
     arquivo.close();
 
     multiplica(M1, M2, p);
+
+    return 0;
 }
