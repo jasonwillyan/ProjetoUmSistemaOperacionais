@@ -24,12 +24,12 @@ void calc(const Matriz<T> &M1, const Matriz<T> &M2, Matriz<T> &M3, int linha, in
     arquivo << M3.getLine() << " " << M3.getColuna() << endl;
 
 	int elementos = 0;
-	for (int i = linha; i < M3.getLine(); ++i)
+	for (int i = linha; i < M3.getLine(); i++)
 	{
-		for (int j = coluna; j < M3.getColuna(); ++j)
+		for (int j = coluna; j < M3.getColuna(); j++)
 		{
 			M3.at(i, j) = 0;
-			for (int k = 0; k < M2.getLine(); ++k)
+			for (int k = 0; k < M2.getLine(); k++)
 			{
 				M3.at(i, j) += M1.get(i, k) * M2.get(k, j);
 			}
